@@ -6,11 +6,7 @@ import Cart from '../Cart/Cart';
 const Home = () => {
     const [reviews] = useContext(ReviewContext)
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     fetch('reviews.json')
-    //         .then(res => res.json())
-    //         .then(data => setReviews(data))
-    // }, [])
+
     return (
         <div className='mt-10 mx-12'>
             <div className='flex'>
