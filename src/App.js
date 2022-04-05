@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
@@ -7,10 +8,13 @@ import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import NotFound from './components/NotFound/NotFound';
 import Reviews from './components/Reviews/Reviews';
+import useReviews from './hooks/useReviews';
 
+export const ReviewContext = createContext();
 function App() {
+  const [reviews, setReviews] = useReviews();
   return (
-    <div>
+    <ReviewContext.Provider value={[reviews, setReviews]}>
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -21,7 +25,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-    </div>
+    </ReviewContext.Provider>
   );
 }
 

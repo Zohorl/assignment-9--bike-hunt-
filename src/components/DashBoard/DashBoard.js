@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewBarChart from '../NewBarChart/NewBarChart';
 import NewLineChart from '../NewLineChart/NewLineChart';
+import NewPieChart from '../NewPieChart/NewPieChart';
 
 export const ChartContext = React.createContext();
 const DashBoard = () => {
@@ -16,6 +17,7 @@ const DashBoard = () => {
             <div className='grid grid-cols-2 m-5'>
                 <NewLineChart></NewLineChart>
                 <NewBarChart></NewBarChart>
+                <NewPieChart></NewPieChart>
             </div>
         </ChartContext.Provider>
     );
