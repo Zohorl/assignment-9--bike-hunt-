@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ReviewContext } from '../../App';
-import useReviews from '../../hooks/useReviews';
 import Cart from '../Cart/Cart';
 
-
 const Home = () => {
-    const [reviews, setReviews] = useContext(ReviewContext)
-
-    useEffect(() => {
-        fetch('reviews.json')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
+    const [reviews] = useContext(ReviewContext)
+    const navigate = useNavigate();
+    // useEffect(() => {
+    //     fetch('reviews.json')
+    //         .then(res => res.json())
+    //         .then(data => setReviews(data))
+    // }, [])
     return (
         <div className='mt-10 mx-12'>
             <div className='flex'>
@@ -31,7 +30,7 @@ const Home = () => {
                         rv={rv}
                     ></Cart>)
                 }
-                <button>See All Reviews</button>
+                <button className='bg-blue-100 w-44 mx-auto text-xl font-bold text-blue-700 px-3 py-1 rounded-lg' onClick={() => navigate('/reviews')}>See All Reviews</button>
             </div>
         </div>
     );
